@@ -1,0 +1,149 @@
+---
+title: Integral and Density Transformation
+author: HXu
+date: 2023-06-23
+category: notes
+layout: post
+---
+
+## Integral Transformation
+
+To perform integral transformation for derivative integrals, we need to deal with the perturbed MO coefficients, which could be parameterized as:
+
+$$
+\begin{align}
+  \pdv{C _{\mu p}(\lambda)}{\lambda} = \sum_{r}C _{\mu r}(0)\pdv{U _{rp}}{\lambda} = \sum_{r}C _{\mu r}U _{rp}^{\lambda}
+\end{align}
+$$
+
+### GIAO Integral Transformation
+For magnetic perturbation with GIAO integrals, we have purely imaginary CPSCF coefficients and derivative overlap integrals:
+
+$$
+\begin{align}
+  U _{pq}^{\mathbf{B}*} = - U _{pq}^{\mathbf{B}} && S _{pq}^{(\mathbf{B})*} = - S _{pq}^{(\mathbf{B})}
+\end{align}
+$$
+
+and the relation for these two (derived by differentiating the orthonormality condition, see CPSCF section):
+
+$$
+\begin{align}
+  U _{qp}^{\mathbf{B}*} + U _{pq}^{\mathbf{B}} + S _{pq}^{(\mathbf{B})} = 0
+\end{align}
+$$
+
+From this we can deduce that $S _{pq}^{(\mathbf{B})}$ is anti-symmetric:
+
+$$
+\begin{align}
+  S _{pq}^{(\mathbf{B})} = - U _{qp}^{\mathbf{B}*} - U _{pq}^{\mathbf{B}} = + U _{qp}^{\mathbf{B}} + U _{pq}^{\mathbf{B}*} = -S _{qp}^{(\mathbf{B})}
+\end{align}
+$$
+
+We can choose arbitrarily for $ij$ and $ab$ blocks under this restriction. Conveniently, we have:
+
+$$
+\begin{align}
+  U _{ba} ^{\mathbf{B}*} = U _{ab}^{\mathbf{B}} = -\frac{1}{2}S _{ab}^{(\mathbf{B})} && U _{ji}^{\mathbf{B}*} = U _{ij}^{\mathbf{B}} = -\frac{1}{2}S _{ij}^{(\mathbf{B})}
+\end{align}
+$$
+
+hence these two blocks are anti-symmetric:
+
+$$
+\begin{align}
+  -U _{ba} ^{\mathbf{B}} = U _{ab}^{\mathbf{B}} && -U _{ji}^{\mathbf{B}} = U _{ij}^{\mathbf{B}}
+\end{align}
+$$
+
+For $ia$ and $ai$ blocks we need to stick with more general expressions:  
+
+$$
+\begin{align}
+  U _{ia}^{\mathbf{B}*} + U _{ai}^{\mathbf{B}} + S _{ai}^{(\mathbf{B})} = 0 &&
+  U _{ai}^{\mathbf{B}*} + U _{ia}^{\mathbf{B}} + S _{ia}^{(\mathbf{B})} = 0
+\end{align}
+$$
+
+Note that for these blocks we don't have the (anti-)symmetric properties for the CPSCF coefficients.  
+
+Bearing these properties in mind we are ready to transform the integrals.
+
+#### GIAO Fock Matrices
+
+From our favourite integral package (namely, SHARK) we can obtain the derivative Fock matrices in GIAO basis, $f _{\mu \nu}^{\text{GIAO},\mathbf{B}}$ . To get the corresponding quantity in MO basis, we apply the product rule:
+
+$$
+\begin{align}
+  \pdv{f _{pq}}{\mathbf{B}} =& \pdv{\mathbf{B}}\sum_{\mu \nu}C _{\mu p}^{*}f _{\mu \nu}C _{\nu q} \\
+  =& \sum_{\mu \nu}C _{\mu p}^{*}\pdv{f _{\mu \nu}}{\mathbf{B}}C _{\nu q} + \sum_{\mu \nu}\sum_{r}C _{\mu r}^{*}\pdv{U _{rp}^{*}}{\mathbf{B}}f _{\mu \nu}C _{\nu q}
+  + \sum_{\mu \nu}\sum_{r}C _{\mu p}^{*}f _{\mu \nu}C _{\nu r}\pdv{U _{rq}}{\mathbf{B}} \nonumber \\
+  =& f _{pq}^{(\mathbf{B})} + \sum_{r}U _{rp}^{\mathbf{B}*}f _{rq} + \sum_{r}f _{pr}U _{rq}^{\mathbf{B}} \nonumber
+\end{align}
+$$
+
+We then split up the summation index in order to apply the properties for our CPSCF coefficients.
+
+$$
+\begin{align}
+  f _{pq}^{\mathbf{B}} \leftarrow & \sum_{r} U _{rp}^{\mathbf{B}*}f _{rq} + \sum_{r}f _{pr}U _{rq}^{\mathbf{B}} \\
+  \leftarrow & \sum_{e}U _{ep}^{\mathbf{B}*}f _{eq} + \sum_{m}U _{mp}^{\mathbf{B}*}f _{mq} + \sum_{e}f _{pe}U _{eq}^{\mathbf{B}} + \sum_{m}f _{pm}U _{mq}^{\mathbf{B}} \nonumber
+  % \leftarrow & - \sum_{e}U _{ep}^{\mathbf{B}}f _{eq} - \sum_{m}U _{mp}^{\mathbf{B}}f _{mq} + \sum_{e}f _{pe}U _{eq}^{\mathbf{B}} + \sum_{m}f _{pm}U _{mq}^{\mathbf{B}} \nonumber
+\end{align}
+$$
+
+Then we split the blocks for the Fock GIAO matrices (and use the Brillouin condition):
+
+$$
+\begin{align*}
+  f _{ij}^{\mathbf{B}} \leftarrow & \sum_{e}U _{ei}^{\mathbf{B}*}\cancel{f _{ej}} + \sum_{m}U _{mi}^{\mathbf{B}*}f _{mj}          + \sum_{e}\cancel{f _{ie}}U _{ej}^{\mathbf{B}} + \sum_{m}f _{im}U _{mj}^{\mathbf{B}}          \\
+  f _{ab}^{\mathbf{B}} \leftarrow & \sum_{e}U _{ea}^{\mathbf{B}*}f _{eb}          + \sum_{m}U _{ma}^{\mathbf{B}*}\cancel{f _{mb}} + \sum_{e}f _{ae}U _{eb}^{\mathbf{B}}          + \sum_{m}\cancel{f _{am}}U _{mb}^{\mathbf{B}} \\
+  f _{ia}^{\mathbf{B}} \leftarrow & \sum_{e}U _{ei}^{\mathbf{B}*}f _{ea}          + \sum_{m}U _{mi}^{\mathbf{B}*}\cancel{f _{ma}} + \sum_{e}\cancel{f _{ie}}U _{ea}^{\mathbf{B}} + \sum_{m}f _{im}U _{ma}^{\mathbf{B}}          \\
+  f _{ai}^{\mathbf{B}} \leftarrow & \sum_{e}U _{ea}^{\mathbf{B}*}\cancel{f _{ei}} + \sum_{m}U _{ma}^{\mathbf{B}*}f _{mi}          + \sum_{e}f _{ae}U _{ei}^{\mathbf{B}}          + \sum_{m}\cancel{f _{am}}U _{mi}^{\mathbf{B}}
+\end{align*}
+$$
+
+$$
+\begin{align*}
+\Downarrow
+\end{align*}
+$$
+
+$$
+\begin{align*}
+  f _{ij}^{\mathbf{B}} \leftarrow & \sum_{m}U _{mi}^{\mathbf{B}*}f _{mj} + \sum_{m}f _{im}U _{mj}^{\mathbf{B}} \\
+  f _{ab}^{\mathbf{B}} \leftarrow & \sum_{e}U _{ea}^{\mathbf{B}*}f _{eb} + \sum_{e}f _{ae}U _{eb}^{\mathbf{B}} \\
+  f _{ia}^{\mathbf{B}} \leftarrow & \sum_{e}U _{ei}^{\mathbf{B}*}f _{ea} + \sum_{m}f _{im}U _{ma}^{\mathbf{B}} \\
+  f _{ai}^{\mathbf{B}} \leftarrow & \sum_{m}U _{ma}^{\mathbf{B}*}f _{mi} + \sum_{e}f _{ae}U _{ei}^{\mathbf{B}}
+\end{align*}
+$$
+
+Now we substitute with derivative overlap integrals and exploit the diagonality of canonical fock matrices, the $ij$ and $ab$ blocks become:
+
+$$
+\begin{align*}
+  f _{ij}^{\mathbf{B}} \leftarrow & - \frac{1}{2}\sum_{m}S _{im}^{(\mathbf{B})}f _{mj} + \frac{1}{2}\sum_{m}S _{jm}^{(\mathbf{B})}f _{mi} = -\frac{1}{2}S _{ij}^{(\mathbf{B})}(\varepsilon _{i} + \varepsilon _{j}) \\
+  f _{ab}^{\mathbf{B}} \leftarrow & - \frac{1}{2}\sum_{e}S _{ae}^{(\mathbf{B})}f _{eb} + \frac{1}{2}\sum_{e}S _{be}^{(\mathbf{B})}f _{ea} = - \frac{1}{2}S _{ab}^{(\mathbf{B})}(\varepsilon _{a} + \varepsilon _{b})
+\end{align*}
+$$
+
+and for the $ia$ and $ai$ block, we cannot get rid of the CPSCF coefficients:
+
+$$
+\begin{align*}
+   f _{ia} ^{\mathbf{B}} & \leftarrow - U _{ai}^{\mathbf{B}}\varepsilon _{a} + U _{ia}^{\mathbf{B}}\varepsilon _{i} = U _{ai}^{\mathbf{B}}(\varepsilon _{i} - \varepsilon _{a}) - S _{ia}^{(\mathbf{B})}\varepsilon _{i} \\
+   f _{ai} ^{\mathbf{B}} & \leftarrow + U _{ia}^{\mathbf{B}*}\varepsilon _{i} + U _{ai}^{\mathbf{B}}\varepsilon _{a} = U _{ai} ^{\mathbf{B}}(\varepsilon _{a} - \varepsilon _{i}) - S _{ai}^{(\mathbf{B})}\varepsilon _{i}
+\end{align*}
+$$
+
+Hence the **total GIAO fock matrix** in MO representation is given by:
+
+$$
+\begin{align}
+  f _{ij}^{\mathbf{B}} =& f _{ij}^{(\mathbf{B})} - \frac{1}{2}S _{ij}^{(\mathbf{B})}(\varepsilon _{i}+\varepsilon _{j}) \\
+  f _{ab}^{\mathbf{B}} =& f _{ab}^{(\mathbf{B})} - \frac{1}{2}S _{ab}^{(\mathbf{B})}(\varepsilon _{a}+\varepsilon _{b}) \\
+  f _{ia}^{\mathbf{B}} =& f _{ia}^{(\mathbf{B})} + U _{ai}^{\mathbf{B}}(\varepsilon _{i}-\varepsilon _{a}) - S _{ia}^{(\mathbf{B})}\varepsilon _{i} \\
+  f _{ai}^{\mathbf{B}} =& f _{ai}^{(\mathbf{B})} + U _{ai}^{\mathbf{B}}(\varepsilon _{a}-\varepsilon _{i}) - S _{ai}^{(\mathbf{B})}\varepsilon _{i}
+\end{align}
+$$
