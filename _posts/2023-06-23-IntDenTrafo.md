@@ -57,7 +57,7 @@ $$
 \end{align}
 $$
 
-For $ia$ and $ai$ blocks we need to stick with more general expressions:  
+For $ia$ and $ai$ blocks we need to stick with more general expressions:
 
 $$
 \begin{align}
