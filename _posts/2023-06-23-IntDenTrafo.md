@@ -1,12 +1,10 @@
 ---
-title: Integral and Density Transformation
+title: 'Trafo: Integral Transformation'
 author: HXu
 date: 2023-06-23
 category: notes
 layout: post
 ---
-
-## Integral Transformation
 
 To perform integral transformation for derivative integrals, we need to deal with the perturbed MO coefficients, which could be parameterized as:
 
@@ -16,7 +14,7 @@ $$
 \end{align}
 $$
 
-### GIAO Integral Transformation
+## GIAO Integral Transformation
 For magnetic perturbation with GIAO integrals, we have purely imaginary CPSCF coefficients and derivative overlap integrals:
 
 $$
@@ -70,7 +68,7 @@ Note that for these blocks we don't have the (anti-)symmetric properties for the
 
 Bearing these properties in mind we are ready to transform the integrals.
 
-#### GIAO Fock Matrices
+### GIAO Fock Matrix
 
 From our favourite integral package (namely, SHARK) we can obtain the derivative Fock matrices in GIAO basis, $f _{\mu \nu}^{\text{GIAO},\mathbf{B}}$ . To get the corresponding quantity in MO basis, we apply the product rule:
 
@@ -147,3 +145,30 @@ $$
   f _{ai}^{\mathbf{B}} =& f _{ai}^{(\mathbf{B})} + U _{ai}^{\mathbf{B}}(\varepsilon _{a}-\varepsilon _{i}) - S _{ai}^{(\mathbf{B})}\varepsilon _{i}
 \end{align}
 $$
+
+### GIAO 2e Integrals
+
+The GIAO 2e derivative integrals could be transformed into MO basis:
+
+$$
+\begin{align}
+  \pdv{\langle pq|rs\rangle}{\mathbf{B}} =& \pdv{\mathbf{B}}\sum_{\mu \nu \rho \sigma}C _{\mu p}^{*}C _{\nu q}^{*}\langle \mu \nu|\rho \sigma\rangle C _{\rho r}C _{\sigma s} \\
+  =& \langle pq|rs\rangle ^{(\mathbf{B})} + \sum_{t}U _{tp}^{\mathbf{B}*}\langle tq|rs\rangle + \sum_{t}U _{tq}^{\mathbf{B}*}\langle pt|rs\rangle + \sum_{t}\langle pq|ts \rangle U _{tr}^{\mathbf{B}} + \sum_{t}\langle pq|rt\rangle U _{ts}^{\mathbf{B}} \nonumber
+\end{align}
+$$
+
+For 2e integrals, we do not split up the orbital space and find expression for specific sub-blocks as we did for Fock matrix. Instead, we try to form the full $\mathbf{U} ^{\mathbf{B}}$ matrix from its sub-blocks and contract with $\langle pq|rs\rangle$ :
+
+$$
+\begin{align}
+  U _{ij} ^{\mathbf{B}} =& U _{ji} ^{\mathbf{B}*} = -\frac{1}{2} S _{ij}^{(\mathbf{B})} \\
+  U _{ab} ^{\mathbf{B}} =& U _{ba} ^{\mathbf{B}*} = -\frac{1}{2} S _{ab}^{(\mathbf{B})} \\
+  U _{ia} ^{\mathbf{B}} =& - S _{ia} ^{(\mathbf{B})} + U _{ai}^{\mathbf{B}} \\
+  U _{ai} ^{\mathbf{B}} =& - U _{ai} ^{\mathbf{B}*}
+\end{align}
+$$
+
+Recall that:
+
+- $\mathbf{S}^{(\mathbf{B})}$ and $\mathbf{U}^{\mathbf{B}}$ are both imaginary.
+- $\mathbf{S}^{(\mathbf{B})}$ and the $ij$ , $ab$ blocks of $\mathbf{U}^{\mathbf{B}}$ matrix are anti-symmetric.
