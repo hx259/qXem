@@ -7,6 +7,11 @@ layout: post
 ---
 
 ## Unperturbed Integrals
+For later use, we define the following symmetry operations for two-electron integrals:
+
+- Interchange of electron 1 and 2 (permutation P1)
+- Interchange of orbital indices on electron 1 (permutation P2)
+- Interchange of orbital indices on electron 2 (permutation P3)
 
 ### One-Electron Integrals
 The symmetry for one-electron integrals is simple:
@@ -36,12 +41,7 @@ $$
 \end{align}
 $$
 
-during which we applied the following symmetry operations:
-
-- Interchange of electron 1 and 2 (permutation P1)
-- Interchange of orbital indices on electron 1 (permutation P2)
-- Interchange of orbital indices on electron 2 (permutation P3)
-
+during which we applied P1, and/or P2+P3.
 Note that in general case P2 and P3 must be applied simultaneously, resulting a complex conjugate.
 
 ### Two-Electron Integrals: Real Orbital Basis
