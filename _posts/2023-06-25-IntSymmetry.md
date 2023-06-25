@@ -26,7 +26,7 @@ $$
 for complex orbitals and $h _{pq} = h _{qp}$ for real orbitals. 
 
 ### Two-Electron Integrals: General Case
-In most general case (complex orbitals), we have 4-fold symmetry for the 2e integrals:
+In most general case (**complex orbitals**), we have 4-fold symmetry for the 2e integrals:
 
 $$
 \begin{align}
@@ -46,7 +46,7 @@ during which we applied P1, and/or P2+P3.
 Note that in general case P2 and P3 must be applied simultaneously, resulting a complex conjugate.
 
 ### Two-Electron Integrals: Real Orbital Basis
-For real orbitals, we remove the complex conjugate restriction, and P2/P3 could be applied alone, producing the ordinary 8-fold symmetry:
+For **real orbitals**, we remove the complex conjugate restriction, and P2/P3 could be applied alone, producing the ordinary 8-fold symmetry:
 
 $$
 \begin{align}
@@ -72,7 +72,7 @@ $$
 \end{align}
 $$
 
-Using the permutation symmetry of the 2e integrals, we find in general:
+Using the permutation symmetry of the 2e integrals, we find for **complex orbitals**:
 
 $$
 \begin{align}
@@ -81,7 +81,7 @@ $$
 \end{align}
 $$
 
-and for real orbitals, we simply drop the complex conjugate:
+and for **real orbitals**, we simply drop the complex conjugate:
 
 $$
 \begin{align}
@@ -93,8 +93,7 @@ $$
 ## Perturbed Integrals
 The perturbed electron integrals, i.e. the derivative integrals, may possess different permutation symmetry than the unperturbed ones, depending on the nature of the perturbation.  
 For unperturbed integrals, the permutation symmetry is identical for AO and MO representation as the integral transformation is simple and all MO coefficients are real.
-As for integral derivatives, we have to be more careful as we are dealing with perturbed MO coefficients. In this case, we start with AO representation and then work our way towards the MO representation through
-integral transformation, which may seem not trivial at first.
+As for integral derivatives, we have to be more careful as we are dealing with **perturbed MO coefficients**. In this case, we start with AO representation and then work our way towards the MO representation through integral transformation, which may seem not trivial at first.
 
 ### GIAO Two-Electron Integrals
 The GIAO 2e integrals inherit the permutation symmetry of 2e integrals in general case, and by the imaginary nature of magnetic perturbation, the first derivative GIAO 2e integrals are purely imaginary, therefore possess 4-fold symmetry (abbreviating $\pdv{\langle \mu \nu \vert \rho \sigma\rangle}{\mathbf{B}}$ as $\langle \mu \nu \vert \rho \sigma\rangle ^{\mathbf{B}}$ ):
@@ -155,20 +154,24 @@ $$
 \end{align}
 $$
 
-Therefore, we have the same 4-fold symmetry for the total integral derivatives in MO representation (using the fact that $\mathbf{U}^{\mathbf{B}*} = -\mathbf{U}^{\mathbf{B}}$ ):
+Therefore, we have the same 4-fold symmetry for the total integral derivatives in MO representation (using the fact that $\mathbf{U}^{\mathbf{B}*} = -\mathbf{U}^{\mathbf{B}}$ ),just as the AO ones:
 
 $$
+\boxed{
 \begin{align}
-  \langle pq \vert rs\rangle ^{\mathbf{B}} = \langle qp \vert sr\rangle ^{\mathbf{B}} = - \langle rs \vert pq\rangle ^{\mathbf{B}} = - \langle sr \vert qp\rangle ^{\mathbf{B}}
+  \langle pq \vert rs\rangle ^{\mathbf{B}} = \langle qp \vert sr\rangle ^{\mathbf{B}} =& - \langle rs \vert pq\rangle ^{\mathbf{B}} = - \langle sr \vert qp\rangle ^{\mathbf{B}} \\
+  \langle \mu \nu \vert \rho \sigma \rangle ^{\mathbf{B}} = \langle \nu \mu \vert \sigma \rho \rangle ^{\mathbf{B}}
+  =& - \langle \rho \sigma \vert \mu \nu \rangle ^{\mathbf{B}} = - \langle \sigma \rho \vert \nu \mu \rangle ^{\mathbf{B}}
 \end{align}
+}
 $$
 
 ### GIAO One-Electron Integrals
 With the same argument, the GIAO 1e integrals are imaginary and anti-symmetric:
 
 $$
-\begin{align}
+\boxed{\begin{align}
   h _{\mu \nu}^{\mathbf{B}} =& - h _{\nu \mu}^{\mathbf{B}} = - h _{\mu \nu}^{\mathbf{B}*} = h _{\nu \mu}^{\mathbf{B}*} \\
   h _{pq}^{\mathbf{B}} =& - h _{qp}^{\mathbf{B}} = - h _{pq} ^{\mathbf{B}*} = h _{qp}^{\mathbf{B}*}
-\end{align}
+\end{align}}
 $$
