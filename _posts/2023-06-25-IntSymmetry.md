@@ -6,12 +6,13 @@ category: notes
 layout: post
 ---
 
-## Unperturbed Integrals
 For later use, we define the following symmetry operations for two-electron integrals:
 
 - Interchange of electron 1 and 2 (permutation P1)
 - Interchange of orbital indices on electron 1 (permutation P2)
 - Interchange of orbital indices on electron 2 (permutation P3)
+
+## Unperturbed Integrals
 
 ### One-Electron Integrals
 The symmetry for one-electron integrals is simple:
