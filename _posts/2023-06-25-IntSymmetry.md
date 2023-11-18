@@ -100,12 +100,83 @@ The GIAO 2e integrals inherit the permutation symmetry of 2e integrals in genera
 
 $$
 \begin{align}
-  \langle \mu \nu \vert \rho \sigma \rangle ^{\mathbf{B}} = \langle \nu \mu \vert \sigma \rho \rangle ^{\mathbf{B}}
-  = - \langle \rho \sigma \vert \mu \nu \rangle ^{\mathbf{B}} = - \langle \sigma \rho \vert \nu \mu \rangle ^{\mathbf{B}}
+  (\mu \nu \vert \kappa \tau) ^{\mathbf{B}} = - (\nu \mu \vert \tau \kappa \rangle ^{\mathbf{B}}
+  =  (\kappa \tau \vert \mu \nu) ^{\mathbf{B}} = - (\tau \kappa \vert \nu \mu) ^{\mathbf{B}}
 \end{align}
 $$
 
-With unperturbed MO coefficients, the transformed integrals possess the same 4-fold symmetry:
+To see this in a more rigorous manner, we start from the general expression of the GIAOs:
+
+$$
+\begin{align}
+  \vert \chi _{\nu}(\mathbf{B})\rangle = e ^{-\frac{i}{2}(\mathbf{B} \times \mathbf{R}^{\mu O})\cdot \mathbf{r}} \vert \chi _{\mu}(\mathbf{0})\rangle
+\end{align}
+$$
+
+With the vector identities (Einstein summation convention applied):
+
+$$
+\begin{gather}
+  (\mathbf{B} \times \mathbf{R}^{\mu O} ) \cdot \mathbf{r} = \epsilon _{ijk}r _{i}B _{j}R _{k}^{\mu O} \\
+  \pdv{B _{\alpha}}[(\mathbf{B} \times \mathbf{R}^{\mu O} ) \cdot \mathbf{r}] = \epsilon _{ijk}r _{i}\delta _{j \alpha}R _{k}^{\mu O} = [\mathbf{R}^{\mu O} \times \mathbf{r}]_{\alpha}
+\end{gather}
+$$
+
+We can evaluate the field deriavtive for the basis function as:
+
+$$
+\begin{align}
+  \pdv{\vert\chi _{\mu}(\mathbf{B})\rangle}{B _{\alpha}} = \pdv{B _{\alpha}}e ^{-\frac{i}{2}(\mathbf{B} \times \mathbf{R}^{\mu O})\cdot \mathbf{r}} \vert\chi _{\mu}(\mathbf{0})\rangle
+  = -\frac{i}{2} [\mathbf{R}^{\mu O}\times \mathbf{r}]_{\alpha}\vert\chi _{\mu}(\mathbf{B})\rangle \nonumber
+\end{align}
+$$
+
+The derivative 2e integral can then be expressed as (in chemists' notation):
+
+$$
+\begin{align}
+  \pdv{B _{\alpha}}(\mu \nu\vert \kappa \tau) =& (\pdv{\chi _{\mu}}{B _{\alpha}} \nu \vert \kappa \tau)
+  + (\mu \pdv{\chi _{\nu}}{B _{\alpha}}\vert \kappa \tau) + (\mu \nu \vert \pdv{\chi _{\kappa}}{B _{\alpha}}\tau)
+  + (\mu \nu\vert \kappa \pdv{\chi _{\tau}}{B _{\alpha}}) \nonumber \\
+  =& (-\frac{i}{2})^{*}\left(\mu \nu \Big\vert \frac{[\mathbf{R}^{\mu O}\times \mathbf{r}_{1}]_{\alpha}}{r _{12}} \Big\vert \kappa \tau\right) + \frac{i}{2}\left(\mu \nu\Big\vert \frac{\mathbf{R}^{\nu O}\times \mathbf{r}_{1}}{r _{12}} \Big\vert \kappa \tau\right)
+  + (-\frac{i}{2})^{*}\left(\mu \nu \Big\vert \frac{[\mathbf{R}^{\kappa O}\times \mathbf{r}_{2}]_{\alpha}}{r _{12}} \Big\vert \kappa \tau\right) + \frac{i}{2}\left(\mu \nu\Big\vert \frac{\mathbf{R}^{\tau O}\times \mathbf{r}_{2}}{r _{12}} \Big\vert \kappa \tau\right) \nonumber \\
+  =& \frac{i}{2}\left(\mu \nu \Big\vert \frac{[\mathbf{R}^{\mu \nu} \times \mathbf{r _{1}} + \mathbf{R}^{\kappa \tau} \times \mathbf{r}_{2}]_{\alpha}}{r _{12}} \Big\vert \kappa \tau\right)
+\end{align}
+$$
+
+Generally, in 3-dimensional space:
+
+$$
+\begin{align}
+  \pdv{(\mu \nu \vert \kappa \tau)}{\mathbf{B}} = \frac{i}{2}\left(\mu \nu \Big\vert \frac{\mathbf{R}^{\mu \nu} \times \mathbf{r _{1}} + \mathbf{R}^{\kappa \tau} \times \mathbf{r}_{2}}{r _{12}} \Big\vert \kappa \tau\right) = \frac{i}{2}\left(\mu \nu \Big\vert \frac{\mathbf{Q} _{\mu \nu}\mathbf{r}_{1}+\mathbf{Q}_{\kappa \tau}\mathbf{r}_{2}}{r _{12}} \Big\vert \kappa \tau\right)
+\end{align}
+$$
+
+Now we can see the symmetry clearly:
+  * by simultaneously swapping $\mu \leftrightarrow \nu$ and $\kappa \leftrightarrow \tau$, $\mathbf{R}^{\mu\nu}$ becomes $\mathbf{R}^{\nu\mu} = -\mathbf{R}^{\mu\nu}$, and $\mathbf{R}^{\kappa\tau}$ becomes $\mathbf{R}^{\tau\kappa} = -\mathbf{R}^{\kappa\tau}$, hence $(-1)$
+  * by simultaneously swapping $\mu \leftrightarrow \kappa$ and $\nu \leftrightarrow \tau$, we get back the same expression, hence $(+1)$
+  * any other swaps do not lead to valid symmetry
+
+This could be summarized as:
+
+$$
+\begin{align}
+  (\mu \nu \vert \kappa \tau) ^{\mathbf{B}} = - (\nu \mu \vert \tau \kappa \rangle ^{\mathbf{B}}
+  =  (\kappa \tau \vert \mu \nu) ^{\mathbf{B}} = - (\tau \kappa \vert \nu \mu) ^{\mathbf{B}}
+\end{align}
+$$
+
+#### Integral Transformation into MO Basis
+
+With unperturbed MO coefficients $\mathbf{C}(0)$, the transformed integrals possess the same 4-fold symmetry:
+
+$$
+\begin{align}
+  (pr|qs)^{\mathbf{(B)}} = (qs|pr)^{\mathbf{(B)}} = -(rp|sq)^{\mathbf{(B)}} = - (sq|rp)^{\mathbf{(B)}}
+\end{align}
+$$
+
+or in physicists' notation:
 
 $$
 \begin{align}
