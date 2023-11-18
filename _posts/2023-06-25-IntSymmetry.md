@@ -96,7 +96,7 @@ For unperturbed integrals, the permutation symmetry is identical for AO and MO r
 As for integral derivatives, we have to be more careful as we are dealing with **perturbed MO coefficients**. In this case, we start with AO representation and then work our way towards the MO representation through integral transformation, which may seem not trivial at first.
 
 ### GIAO Two-Electron Integrals
-The GIAO 2e integrals inherit the permutation symmetry of 2e integrals in general case, and by the imaginary nature of magnetic perturbation, the first derivative GIAO 2e integrals are purely imaginary, therefore possess 4-fold symmetry (abbreviating $\pdv{\langle \mu \nu \vert \rho \sigma\rangle}{\mathbf{B}}$ as $\langle \mu \nu \vert \rho \sigma\rangle ^{\mathbf{B}}$ ):
+The GIAO 2e integrals inherit the permutation symmetry of 2e integrals in general case, and by the imaginary nature of magnetic perturbation, the first derivative GIAO 2e integrals are purely imaginary, therefore possess 4-fold symmetry (abbreviating $\pdv{(\mu \nu \vert \kappa \tau)}{\mathbf{B}}$ as $(\mu \nu \vert \kappa \tau) ^{\mathbf{B}}$ ):
 
 $$
 \begin{align}
@@ -109,7 +109,7 @@ To see this in a more rigorous manner, we start from the general expression of t
 
 $$
 \begin{align}
-  \vert \chi _{\nu}(\mathbf{B})\rangle = e ^{-\frac{i}{2}(\mathbf{B} \times \mathbf{R}^{\mu O})\cdot \mathbf{r}} \vert \chi _{\mu}(\mathbf{0})\rangle
+  \vert \chi _{\mu}(\mathbf{B})\rangle = e ^{-\frac{i}{2}(\mathbf{B} \times \mathbf{R}^{\mu O})\cdot \mathbf{r}} \vert \chi _{\mu}(\mathbf{0})\rangle
 \end{align}
 $$
 
@@ -144,12 +144,12 @@ $$
 \end{align}
 $$
 
-Generally, in 3-dimensional space:
+Generally, in 3-dimensional space (also quoting from Helgaker's paper):
 
 $$
-\begin{align}
+\boxed{\begin{align}
   \pdv{(\mu \nu \vert \kappa \tau)}{\mathbf{B}} = \frac{i}{2}\left(\mu \nu \Big\vert \frac{\mathbf{R}^{\mu \nu} \times \mathbf{r _{1}} + \mathbf{R}^{\kappa \tau} \times \mathbf{r}_{2}}{r _{12}} \Big\vert \kappa \tau\right) = \frac{i}{2}\left(\mu \nu \Big\vert \frac{\mathbf{Q} _{\mu \nu}\mathbf{r}_{1}+\mathbf{Q}_{\kappa \tau}\mathbf{r}_{2}}{r _{12}} \Big\vert \kappa \tau\right)
-\end{align}
+\end{align}}
 $$
 
 Now we can see the symmetry clearly:
