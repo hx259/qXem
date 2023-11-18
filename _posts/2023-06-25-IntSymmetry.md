@@ -138,8 +138,8 @@ $$
   \pdv{B _{\alpha}}(\mu \nu\vert \kappa \tau) =& (\pdv{\chi _{\mu}}{B _{\alpha}} \nu \vert \kappa \tau)
   + (\mu \pdv{\chi _{\nu}}{B _{\alpha}}\vert \kappa \tau) + (\mu \nu \vert \pdv{\chi _{\kappa}}{B _{\alpha}}\tau)
   + (\mu \nu\vert \kappa \pdv{\chi _{\tau}}{B _{\alpha}}) \nonumber \\
-  =& (-\frac{i}{2})^{*}\left(\mu \nu \Big\vert \frac{[\mathbf{R}^{\mu O}\times \mathbf{r}_{1}]_{\alpha}}{r _{12}} \Big\vert \kappa \tau\right) + \frac{i}{2}\left(\mu \nu\Big\vert \frac{\mathbf{R}^{\nu O}\times \mathbf{r}_{1}}{r _{12}} \Big\vert \kappa \tau\right)
-  + (-\frac{i}{2})^{*}\left(\mu \nu \Big\vert \frac{[\mathbf{R}^{\kappa O}\times \mathbf{r}_{2}]_{\alpha}}{r _{12}} \Big\vert \kappa \tau\right) + \frac{i}{2}\left(\mu \nu\Big\vert \frac{\mathbf{R}^{\tau O}\times \mathbf{r}_{2}}{r _{12}} \Big\vert \kappa \tau\right) \nonumber \\
+  =& (-\frac{i}{2})^{*}\left(\mu \nu \Big\vert \frac{[\mathbf{R}^{\mu O}\times \mathbf{r}_{1}]_{\alpha}}{r _{12}} \Big\vert \kappa \tau\right) + \frac{i}{2}\left(\mu \nu\Big\vert \frac{\mathbf{R}^{\nu O}\times \mathbf{r}_{1}}{r _{12}} \Big\vert \kappa \tau\right) \nonumber \\
+  &+ (-\frac{i}{2})^{*}\left(\mu \nu \Big\vert \frac{[\mathbf{R}^{\kappa O}\times \mathbf{r}_{2}]_{\alpha}}{r _{12}} \Big\vert \kappa \tau\right) + \frac{i}{2}\left(\mu \nu\Big\vert \frac{\mathbf{R}^{\tau O}\times \mathbf{r}_{2}}{r _{12}} \Big\vert \kappa \tau\right) \nonumber \\
   =& \frac{i}{2}\left(\mu \nu \Big\vert \frac{[\mathbf{R}^{\mu \nu} \times \mathbf{r _{1}} + \mathbf{R}^{\kappa \tau} \times \mathbf{r}_{2}]_{\alpha}}{r _{12}} \Big\vert \kappa \tau\right)
 \end{align}
 $$
