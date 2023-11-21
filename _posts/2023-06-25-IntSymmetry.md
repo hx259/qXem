@@ -1,5 +1,5 @@
 ---
-title: Symmetry of Electron Integrals
+title: QC- Symmetry of Electron Integrals
 author: HXu
 date: 2023-06-25
 category: notes
